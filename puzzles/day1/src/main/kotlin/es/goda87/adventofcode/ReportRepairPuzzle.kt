@@ -35,6 +35,12 @@ class ReportRepairPuzzle: Puzzle {
     }
 
     override fun getResult(input: CharSequence): String {
-        return "NOT IMPLEMENTED"
+        val list = input.split("\n").map { it.toInt() }
+        list.forEachIndexed { i, first ->
+            list.subList(i+1, list.size).forEach { second ->
+                if (first + second == 2020) return "${first*second}"
+            }
+        }
+        return "NOT FOUND"
     }
 }

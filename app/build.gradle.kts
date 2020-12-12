@@ -7,7 +7,8 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":utilities"))
+    implementation(project(":puzzles:common"))
+    implementation(project(":puzzles:day1"))
 }
 
 application {

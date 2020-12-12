@@ -3,9 +3,15 @@
  */
 package es.goda87.adventofcode2020.app
 
-import es.goda87.adventofcode2020.utilities.StringUtils
+import es.goda87.adventofcode.Puzzle
+import es.goda87.adventofcode.ReportRepairPuzzle
 
 fun main() {
-    val tokens = StringUtils.split(MessageUtils.getMessage())
-    println(StringUtils.join(tokens))
+    println(solvePuzzlesToString(true, *puzzles))
 }
+
+private val puzzles = listOf<Pair<Puzzle, CharSequence>>(
+    ReportRepairPuzzle() to "2020day1Input.txt"
+).map {
+    it.first to readFileAsString(it.second)
+}.toTypedArray()

@@ -8,5 +8,5 @@
  */
 
 rootProject.name = "adventofcode2020"
-include("app", "list", "utilities", "puzzles:common")
-include("puzzles:day1:reportRepair")
+include("app", "puzzles:common")
+include("puzzles:day1")
