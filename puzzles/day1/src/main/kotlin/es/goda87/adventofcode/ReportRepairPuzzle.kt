@@ -1,6 +1,6 @@
 package es.goda87.adventofcode
 
-class ReportRepairPuzzle: Puzzle {
+class ReportRepairPuzzle(private val numbersToSelect: Int = 2): Puzzle {
     override fun getName(): CharSequence {
         return "Day 01, problem 01: Report Repair"
     }
@@ -31,7 +31,15 @@ class ReportRepairPuzzle: Puzzle {
                 "\n" +
                 "In this list, the two entries that sum to 2020 are 1721 and 299. Multiplying them together produces 1721 * 299 = 514579, so the correct answer is 514579.\n" +
                 "\n" +
-                "Of course, your expense report is much larger. Find the two entries that sum to 2020; what do you get if you multiply them together?\n"
+                "Of course, your expense report is much larger. Find the two entries that sum to 2020; what do you get if you multiply them together?\n" +
+                "\n" +
+                "--- Part Two ---\n" +
+                "\n" +
+                "The Elves in accounting are thankful for your help; one of them even offers you a starfish coin they had left over from a past vacation. They offer you a second one if you can find three numbers in your expense report that meet the same criteria.\n" +
+                "\n" +
+                "Using the above example again, the three entries that sum to 2020 are 979, 366, and 675. Multiplying them together produces the answer, 241861950.\n" +
+                "\n" +
+                "In your expense report, what is the product of the three entries that sum to 2020?\n"
     }
 
     override fun getResult(input: CharSequence): String {

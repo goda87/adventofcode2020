@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Assertions.*
 
 internal class ReportRepairPuzzleTest {
 
-    val expectedResult = "514579"
     val input = "1721\n" +
             "979\n" +
             "366\n" +
@@ -17,6 +16,12 @@ internal class ReportRepairPuzzleTest {
     @Test
     fun getResult() {
         val actual = ReportRepairPuzzle().getResult(input)
-        assertEquals(expectedResult, actual)
+        assertEquals("514579", actual)
+    }
+
+    @Test
+    fun getResultFor3Elements() {
+        val actual = ReportRepairPuzzle(3).getResult(input)
+        assertEquals("241861950", actual)
     }
 }
