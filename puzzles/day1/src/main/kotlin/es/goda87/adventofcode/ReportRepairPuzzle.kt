@@ -1,6 +1,6 @@
 package es.goda87.adventofcode
 
-class ReportRepairPuzzle(private val numbersToSelect: Int = 2): Puzzle {
+class ReportRepairPuzzle(private val numbersToSelect: Int = 2) : Puzzle {
     override fun getName(): CharSequence {
         return "Day 01, problem 01: Report Repair"
     }
@@ -44,11 +44,28 @@ class ReportRepairPuzzle(private val numbersToSelect: Int = 2): Puzzle {
 
     override fun getResult(input: CharSequence): String {
         val list = input.split("\n").map { it.toInt() }
+        return findAndMultiplyNNumbersThatSum(2020, numbersToSelect, list)?.toString() ?: "NOT FOUND"
+    }
+
+    private fun findAndMultiplyNNumbersThatSum(sum: Int, n: Int, list: List<Int>): Int? {
+        if (n > 2) {
+            list.forEachIndexed { i, first ->
+                findAndMultiplyNNumbersThatSum(sum - first, n - 1, list.subList(i + 1, list.size))?.let {
+                    return first * it
+                }
+            }
+        } else {
+            return findAndMultiply2NumbersThatSum(sum, list)
+        }
+        return null
+    }
+
+    private fun findAndMultiply2NumbersThatSum(sum: Int, list: List<Int>): Int? {
         list.forEachIndexed { i, first ->
-            list.subList(i+1, list.size).forEach { second ->
-                if (first + second == 2020) return "${first*second}"
+            list.subList(i + 1, list.size).forEach { second ->
+                if (first + second == sum) return first * second
             }
         }
-        return "NOT FOUND"
+        return null
     }
 }
