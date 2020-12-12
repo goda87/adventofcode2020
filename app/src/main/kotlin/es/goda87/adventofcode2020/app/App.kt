@@ -11,7 +11,8 @@ fun main() {
 }
 
 private val puzzles = listOf<Pair<Puzzle, CharSequence>>(
-    ReportRepairPuzzle() to "2020day1Input.txt"
+    ReportRepairPuzzle() to "2020day1Input.txt",
+    ReportRepairPuzzle(3) to "2020day1Input.txt"
 ).map {
     it.first to readFileAsString(it.second)
 }.toTypedArray()
