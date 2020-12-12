@@ -48,23 +48,14 @@ class ReportRepairPuzzle(private val numbersToSelect: Int = 2) : Puzzle {
     }
 
     private fun findAndMultiplyNNumbersThatSum(sum: Int, n: Int, list: List<Int>): Int? {
-        if (n > 2) {
+        if (n > 1) {
             list.forEachIndexed { i, first ->
                 findAndMultiplyNNumbersThatSum(sum - first, n - 1, list.subList(i + 1, list.size))?.let {
                     return first * it
                 }
             }
         } else {
-            return findAndMultiply2NumbersThatSum(sum, list)
-        }
-        return null
-    }
-
-    private fun findAndMultiply2NumbersThatSum(sum: Int, list: List<Int>): Int? {
-        list.forEachIndexed { i, first ->
-            list.subList(i + 1, list.size).forEach { second ->
-                if (first + second == sum) return first * second
-            }
+            return if (list.contains(sum)) sum else null
         }
         return null
     }
