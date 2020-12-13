@@ -24,6 +24,19 @@ class PasswordPhilosopy2Puzzle : Puzzle {
     }
 
     override fun getResult(input: CharSequence): String {
-        TODO("Not implemented yet!")
+        var validLines = 0
+        input.split("\n").forEach { line ->
+            validLines += validateLine(line)
+        }
+        return validLines.toString()
+    }
+
+    private fun validateLine(line: CharSequence): Int {
+        val tokens = line.split(" ")
+        val positions = tokens[0].split("-").map { it.toInt() }
+        val afectedChar = tokens[1][0]
+        val password = tokens[2]
+        val coincidences = positions.map { password[it - 1] == afectedChar}.map { if (it) 1 else 0 }.sum()
+        return if (coincidences == 1) 1 else 0
     }
 }
