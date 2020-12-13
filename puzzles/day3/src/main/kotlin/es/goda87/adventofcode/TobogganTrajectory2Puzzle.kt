@@ -10,11 +10,24 @@ class TobogganTrajectory2Puzzle : Puzzle {
         return "https://adventofcode.com/2020/day/3"
     }
 
+    private val slopes = listOf(
+        1 to 1,
+        3 to 1,
+        5 to 1,
+        7 to 1,
+        1 to 2
+    )
+
     override fun getResult(input: CharSequence): String {
-        return (TobogganTrajectoryPuzzle(1,1).getResult(input).toInt() *
-        TobogganTrajectoryPuzzle(3,1).getResult(input).toInt() *
-        TobogganTrajectoryPuzzle(5,1).getResult(input).toInt() *
-        TobogganTrajectoryPuzzle(7,1).getResult(input).toInt() *
-        TobogganTrajectoryPuzzle(1,2).getResult(input).toInt()).toString()
+        return slopes.map { valueForSlope(it.first, it.second, input) }.product().toString()
+    }
+
+    private fun valueForSlope(right: Int, down: Int, input: CharSequence): Int =
+        TobogganTrajectoryPuzzle(right,down).getResult(input).toInt()
+
+    private fun List<Int>.product(): Int {
+        var product = 1
+        forEach { product *= it }
+        return product
     }
 }
