@@ -1,6 +1,9 @@
 package es.goda87.adventofcode
 
-class TobogganTrajectoryPuzzle : Puzzle {
+class TobogganTrajectoryPuzzle(
+    private val right: Int = 3,
+    private val down: Int = 1
+) : Puzzle {
     override fun getName(): CharSequence {
         return "--- Day 3: Toboggan Trajectory ---"
     }
@@ -14,9 +17,9 @@ class TobogganTrajectoryPuzzle : Puzzle {
         val rowLength = lines[0].length
         var currentColumn = 0
         var count = 0
-        (lines).forEach {
-            count += if (it[currentColumn] == '#') 1 else 0
-            currentColumn = (currentColumn + 3) % rowLength
+        (lines.indices step down).forEach {
+            count += if (lines[it][currentColumn] == '#') 1 else 0
+            currentColumn = (currentColumn + right) % rowLength
         }
         return count.toString()
     }
