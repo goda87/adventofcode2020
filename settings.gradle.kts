@@ -11,5 +11,6 @@ rootProject.name = "adventofcode2020"
 include("app", "puzzles:common")
 include(
     "puzzles:day1",
-    "puzzles:day2"
+    "puzzles:day2",
+    "puzzles:day3"
 )
