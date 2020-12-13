@@ -19,15 +19,9 @@ class TobogganTrajectory2Puzzle : Puzzle {
     )
 
     override fun getResult(input: CharSequence): String {
-        return slopes.map { valueForSlope(it.first, it.second, input) }.product().toString()
+        return slopes.map { valueForSlope(it.first, it.second, input) }.reduce {acc, it -> acc * it}.toString()
     }
 
     private fun valueForSlope(right: Int, down: Int, input: CharSequence): Long =
         TobogganTrajectoryPuzzle(right,down).getResult(input).toLong()
-
-    private fun List<Long>.product(): Long {
-        var product = 1L
-        forEach { product *= it }
-        return product
-    }
 }
