@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Assertions.*
 
 internal class ReportRepairPuzzleTest {
 
-    val input = "1721\n" +
+    private val input = "1721\n" +
             "979\n" +
             "366\n" +
             "299\n" +

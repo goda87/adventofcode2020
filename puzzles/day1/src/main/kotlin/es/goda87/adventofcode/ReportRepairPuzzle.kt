@@ -2,7 +2,7 @@ package es.goda87.adventofcode
 
 class ReportRepairPuzzle(private val numbersToSelect: Int = 2) : Puzzle {
     override fun getName(): CharSequence {
-        return "Day 01, problem 01: Report Repair"
+        return "--- Day 1: Report Repair ---"
     }
 
     override fun getDefinition(): CharSequence {
