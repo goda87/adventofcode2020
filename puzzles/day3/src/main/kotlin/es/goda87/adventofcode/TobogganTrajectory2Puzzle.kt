@@ -22,11 +22,11 @@ class TobogganTrajectory2Puzzle : Puzzle {
         return slopes.map { valueForSlope(it.first, it.second, input) }.product().toString()
     }
 
-    private fun valueForSlope(right: Int, down: Int, input: CharSequence): Int =
-        TobogganTrajectoryPuzzle(right,down).getResult(input).toInt()
+    private fun valueForSlope(right: Int, down: Int, input: CharSequence): Long =
+        TobogganTrajectoryPuzzle(right,down).getResult(input).toLong()
 
-    private fun List<Int>.product(): Int {
-        var product = 1
+    private fun List<Long>.product(): Long {
+        var product = 1L
         forEach { product *= it }
         return product
     }
