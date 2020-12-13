@@ -1,6 +1,7 @@
 package es.goda87.adventofcode
 
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtensionContext
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.Arguments.arguments
@@ -28,6 +29,12 @@ internal class TobogganTrajectoryPuzzleTest {
     fun getResult(right: Int, down: Int, expected: String) {
         val actual = TobogganTrajectoryPuzzle(right, down).getResult(input)
         assertEquals(expected, actual)
+    }
+
+    @Test
+    fun getResultPart2() {
+        val actual = TobogganTrajectory2Puzzle().getResult(input)
+        assertEquals("336", actual)
     }
 }
 
