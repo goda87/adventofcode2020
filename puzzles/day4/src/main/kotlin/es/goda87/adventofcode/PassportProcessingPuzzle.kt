@@ -1,9 +1,18 @@
 package es.goda87.adventofcode
 
-class PassportProcessingPuzzle(
-    private val right: Int = 3,
-    private val down: Int = 1
-) : Puzzle {
+private val mandatoryKeycodes = listOf(
+    "byr",
+    "iyr",
+    "eyr",
+    "hgt",
+    "hcl",
+    "ecl",
+    "pid"
+)
+
+private val optionalKeycodes = listOf("cid")
+
+class PassportProcessingPuzzle : Puzzle {
     override fun getName(): CharSequence {
         return "--- Day 4: Passport Processing ---"
     }
@@ -13,6 +22,16 @@ class PassportProcessingPuzzle(
     }
 
     override fun getResult(input: CharSequence): String {
-        TODO("Not Implemented yet")
+        val passports = input.split("\n\n")
+        var count = 0
+        passports.forEach {
+            count += isValidPassport(it)
+        }
+        return count.toString()
+    }
+
+    private fun isValidPassport(passport: CharSequence): Int {
+        val keys = passport.split("\n", " ").map { it.split(":")[0] }
+        return if (keys.containsAll(mandatoryKeycodes)) 1 else 0
     }
 }
