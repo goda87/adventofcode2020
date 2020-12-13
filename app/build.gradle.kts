@@ -10,6 +10,7 @@ dependencies {
     implementation(project(":puzzles:common"))
     implementation(project(":puzzles:day1"))
     implementation(project(":puzzles:day2"))
+    implementation(project(":puzzles:day3"))
 }
 
 application {
