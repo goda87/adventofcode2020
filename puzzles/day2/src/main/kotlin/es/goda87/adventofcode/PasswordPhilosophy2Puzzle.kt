@@ -1,6 +1,6 @@
 package es.goda87.adventofcode
 
-class PasswordPhilosopy2Puzzle : Puzzle {
+class PasswordPhilosophy2Puzzle : Puzzle {
     override fun getName(): CharSequence {
         return "--- Day 2: Password Philosophy --- Part Two ---"
     }

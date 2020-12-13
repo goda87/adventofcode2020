@@ -17,7 +17,7 @@ class PasswordPhilosophyPuzzleTest {
 
     @Test
     fun secondPolicyGetResult() {
-        val actual = PasswordPhilosopy2Puzzle().getResult(input)
+        val actual = PasswordPhilosophy2Puzzle().getResult(input)
         Assertions.assertEquals("1", actual)
     }
 }

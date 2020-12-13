@@ -3,6 +3,7 @@
  */
 package es.goda87.adventofcode2020.app
 
+import es.goda87.adventofcode.PasswordPhilosophy2Puzzle
 import es.goda87.adventofcode.PasswordPhilosophyPuzzle
 import es.goda87.adventofcode.Puzzle
 import es.goda87.adventofcode.ReportRepairPuzzle
@@ -14,7 +15,8 @@ fun main() {
 private val puzzles = listOf<Pair<Puzzle, CharSequence>>(
     ReportRepairPuzzle() to "2020day1input.txt",
     ReportRepairPuzzle(3) to "2020day1input.txt",
-    PasswordPhilosophyPuzzle() to "2020day2input.txt"
+    PasswordPhilosophyPuzzle() to "2020day2input.txt",
+    PasswordPhilosophy2Puzzle() to "2020day2input.txt"
 ).map {
     it.first to readFileAsString(it.second)
 }.toTypedArray()
