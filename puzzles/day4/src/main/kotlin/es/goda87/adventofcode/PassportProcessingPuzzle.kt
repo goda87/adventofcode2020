@@ -12,7 +12,7 @@ private val mandatoryKeycodes = listOf(
 
 private val optionalKeycodes = listOf("cid")
 
-class PassportProcessingPuzzle : Puzzle {
+class PassportProcessingPuzzle(private val validateData: Boolean = false) : Puzzle {
     override fun getName(): CharSequence {
         return "--- Day 4: Passport Processing ---"
     }
