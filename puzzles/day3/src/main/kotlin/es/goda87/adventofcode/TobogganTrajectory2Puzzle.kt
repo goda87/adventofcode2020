@@ -11,6 +11,10 @@ class TobogganTrajectory2Puzzle : Puzzle {
     }
 
     override fun getResult(input: CharSequence): String {
-        TODO("Not implemented")
+        return (TobogganTrajectoryPuzzle(1,1).getResult(input).toInt() *
+        TobogganTrajectoryPuzzle(3,1).getResult(input).toInt() *
+        TobogganTrajectoryPuzzle(5,1).getResult(input).toInt() *
+        TobogganTrajectoryPuzzle(7,1).getResult(input).toInt() *
+        TobogganTrajectoryPuzzle(1,2).getResult(input).toInt()).toString()
     }
 }
