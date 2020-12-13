@@ -10,6 +10,14 @@ class TobogganTrajectoryPuzzle : Puzzle {
     }
 
     override fun getResult(input: CharSequence): String {
-        TODO("Not yet implemented")
+        val lines = input.split("\n")
+        val rowLength = lines[0].length
+        var currentColumn = 0
+        var count = 0
+        (lines).forEach {
+            count += if (it[currentColumn] == '#') 1 else 0
+            currentColumn = (currentColumn + 3) % rowLength
+        }
+        return count.toString()
     }
 }
