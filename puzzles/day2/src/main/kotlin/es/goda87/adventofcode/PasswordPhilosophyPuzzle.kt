@@ -30,6 +30,21 @@ class PasswordPhilosophyPuzzle : Puzzle {
     }
 
     override fun getResult(input: CharSequence): String {
-        TODO("Not yet implemented")
+        var validLines = 0
+        input.split("\n").forEach { line ->
+            validLines += validateLine(line)
+        }
+        return validLines.toString()
+    }
+
+    private fun validateLine(line: CharSequence): Int {
+        val tokens = line.split(" ")
+        val range = tokens[0].split("-").let {
+            it[0].toInt()..it[1].toInt()
+        }
+        val afectedChar = tokens[1][0]
+        val password = tokens[2]
+        val count = password.count { it == afectedChar }
+        return if (count in range) 1 else 0
     }
 }
