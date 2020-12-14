@@ -9,3 +9,12 @@ class Day6CustomCustomsPuzzle : Puzzle {
         input.split("\n\n").map { it.split("\n").reduce { acc, s -> acc + s } }
             .map { it.toList().distinct().size }.reduce { acc, i -> acc + i }.toString()
 }
+
+class Day6P2CustomCustomsPuzzle : Puzzle {
+    override fun getName(): CharSequence = "--- Day 6: Custom Customs --- Part two ---"
+
+    override fun getDefinition(): CharSequence = "https://adventofcode.com/2020/day/6"
+
+    override fun getResult(input: CharSequence): String =
+        TODO("Not implemented")
+}
