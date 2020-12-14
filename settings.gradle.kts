@@ -14,5 +14,6 @@ include(
     "puzzles:day2",
     "puzzles:day3",
     "puzzles:day4",
-    "puzzles:day5"
+    "puzzles:day5",
+    "puzzles:dayX"
 )
