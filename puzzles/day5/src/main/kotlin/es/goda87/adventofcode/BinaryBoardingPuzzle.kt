@@ -2,6 +2,19 @@ package es.goda87.adventofcode
 
 import java.lang.Integer.max
 
+class BinaryBoarding2Puzzle : Puzzle {
+    override fun getName(): CharSequence = "--- Day 5: Binary Boarding ---  Part two ---"
+
+    override fun getDefinition(): CharSequence = "https://adventofcode.com/2020/day/5"
+
+    override fun getResult(input: CharSequence): String {
+        val bbp = BinaryBoardingPuzzle()
+        val seatsIds = input.split("\n").map { bbp.getId(it) }.sorted()
+        return seatsIds.reduce { acc, i -> if (i - acc == 1) i else acc}.plus(1).toString()
+    }
+
+}
+
 class BinaryBoardingPuzzle : Puzzle {
     override fun getName(): CharSequence {
         return "--- Day 5: Binary Boarding ---"
