@@ -5,7 +5,7 @@ class Day6CustomCustomsPuzzle : Puzzle {
 
     override fun getDefinition(): CharSequence = "https://adventofcode.com/2020/day/6"
 
-    override fun getResult(input: CharSequence): String {
-        TODO("NotImplemented")
-    }
+    override fun getResult(input: CharSequence): String =
+        input.split("\n\n").map { it.split("\n").reduce { acc, s -> acc + s } }
+            .map { it.toList().distinct().size }.reduce { acc, i -> acc + i }.toString()
 }
