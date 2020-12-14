@@ -1,5 +1,7 @@
 package es.goda87.adventofcode
 
+import java.lang.Integer.max
+
 class BinaryBoardingPuzzle : Puzzle {
     override fun getName(): CharSequence {
         return "--- Day 5: Binary Boarding ---"
@@ -10,18 +12,29 @@ class BinaryBoardingPuzzle : Puzzle {
     }
 
     override fun getResult(input: CharSequence): String {
-        TODO("Not implemented")
+        val seats = input.split("\n")
+        return seats.map { getId(it) }.reduce {acc, i -> max(acc, i) }.toString()
     }
 
-    internal fun getRow(seat: String): Int {
-        TODO("Not implemented")
-    }
+    internal fun getRow(seat: String): Int =
+        seat.subSequence(0, 7).map { it == 'F' }.binaryApproach(127)
 
-    fun getColumn(seat: String): Int {
-        TODO("Not implemented")
-    }
 
-    fun getId(seat: String): Int {
-        TODO("Not implemented")
+    fun getColumn(seat: String): Int =
+        seat.subSequence(7, 10).map { it == 'L' }.binaryApproach(7)
+
+    fun getId(seat: String): Int = getRow(seat) * 8 + getColumn(seat)
+
+    private fun List<Boolean>.binaryApproach(n: Int): Int {
+        var min = 0
+        var max = n
+        forEach {
+            if (it) {
+                max -= ((max - min) / 2)
+            } else {
+                min = max - ((max - min) / 2)
+            }
+        }
+        return min
     }
 }
