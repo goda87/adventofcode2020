@@ -22,7 +22,8 @@ private val puzzles = listOf<Pair<Puzzle, CharSequence>>(
     BinaryBoarding2Puzzle() to "2020day5input.txt",
     Day6CustomCustomsPuzzle() to "2020day6input.txt",
     Day6P2CustomCustomsPuzzle() to "2020day6input.txt",
-    Day7HandyHaversacksPuzzle() to "2020day7input.txt"
+    Day7HandyHaversacksPuzzle() to "2020day7input.txt",
+    Day7p2HandyHaversacksPuzzle() to "2020day7input.txt"
 ).map {
     it.first to readFileAsString(it.second)
 }.toTypedArray()
